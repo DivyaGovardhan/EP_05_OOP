@@ -4,9 +4,6 @@ from .models import Book, Author, BookInstance, Genre
 from django.views import generic
 
 def index(request):
-    """
-    Функция отображения для домашней страницы сайта.
-    """
     # Генерация "количеств" некоторых главных объектов
     num_books=Book.objects.all().count()
     num_instances=BookInstance.objects.all().count()
@@ -25,10 +22,43 @@ def index(request):
 class BookListView(generic.ListView):
     model = Book
 
-    def get_queryset(self):
-        return Book.objects.filter(title__icontains='war')[:5] # Получить 5 книг, содержащих 'war' в заголовке
+    paginate_by = 2
+
+    # def get_queryset(self):
+    #     return Book.objects.filter(title__icontains='war')[:5] # Получить 5 книг, содержащих 'war' в заголовке
 
 class BookDetailView(generic.DetailView):
     model = Book
 
+    def book_detail_view(request, pk):
+        try:
+            book_id = Book.objects.get(pk=pk)
+        except Book.DoesNotExist:
+            raise Http404("Book does not exist")
 
+        # book_id=get_object_or_404(Book, pk=pk)
+
+        return render(
+            request,
+            'catalog/book_detail.html',
+            context={'book': book_id, }
+        )
+
+class AuthorListView(generic.ListView):
+    model = Author
+    paginate_by = 2
+
+class AuthorDetailView(generic.DetailView):
+    model = Author
+
+    def author_detail_view(request, pk):
+        try:
+            author_id = Author.objects.get(pk=pk)
+        except Author.DoesNotExist:
+            raise Http404("Author does not exist")
+
+        return render(
+            request,
+            'catalog/author_detail.html',
+            context={'author': author_id, }
+        )

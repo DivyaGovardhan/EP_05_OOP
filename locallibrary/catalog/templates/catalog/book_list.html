@@ -10,8 +10,8 @@
         <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})
       </li>
       {% endfor %}
-
     </ul>
+
     {% else %}
       <p>Пока в библиотеке нет книг.</p>
     {% endif %}
