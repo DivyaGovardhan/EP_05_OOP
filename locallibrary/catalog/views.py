@@ -1,7 +1,25 @@
 from django.http import Http404
+from django.views import View
 from django.shortcuts import render
 from .models import Book, Author, BookInstance, Genre
 from django.views import generic
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
+    """
+    Generic class-based view listing books on loan to current user.
+    """
+    model = BookInstance
+    template_name ='catalog/bookinstance_list_borrowed_user.html'
+    paginate_by = 10
+
+    def get_queryset(self):
+        return BookInstance.objects.filter(borrower=self.request.user).filter(status__exact='o').order_by('due_back')
+
+class MyView(LoginRequiredMixin, View):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+
 
 def index(request):
     # Генерация "количеств" некоторых главных объектов
@@ -19,9 +37,11 @@ def index(request):
     return render(
         request,
         'index.html',
-        context={'num_books': num_books, 'num_instances': num_instances,
-                 'num_instances_available': num_instances_available, 'num_authors': num_authors,
-                 'num_visits': num_visits},  # num_visits appended
+        context={'num_books': num_books,
+                 'num_instances': num_instances,
+                 'num_instances_available': num_instances_available,
+                 'num_authors': num_authors,
+                 'num_visits': num_visits},
     )
 
 class BookListView(generic.ListView):
