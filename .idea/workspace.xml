@@ -4,25 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5bd8d40-9668-454d-9147-ea1d67dbf243" name="Changes" comment="login">
-      <change afterPath="$PROJECT_DIR$/locallibrary/catalog/templates/catalog/bookinstance_list_borrowed_user.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/locallibrary/templates/registration/logged_out.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/locallibrary/templates/registration/password_reset_complete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/locallibrary/templates/registration/password_reset_confirm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/locallibrary/templates/registration/password_reset_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/locallibrary/templates/registration/password_reset_email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/locallibrary/templates/registration/password_reset_form.html" afterDir="false" />
+    <list default="true" id="e5bd8d40-9668-454d-9147-ea1d67dbf243" name="Changes" comment="borrower">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locallibrary/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locallibrary/catalog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/locallibrary/catalog/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/locallibrary/catalog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/locallibrary/catalog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locallibrary/catalog/templates/base_generic.html" beforeDir="false" afterPath="$PROJECT_DIR$/locallibrary/catalog/templates/base_generic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locallibrary/catalog/templates/catalog/book_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/locallibrary/catalog/templates/catalog/book_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locallibrary/catalog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/locallibrary/catalog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locallibrary/catalog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/locallibrary/catalog/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/locallibrary/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/locallibrary/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locallibrary/locallibrary/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/locallibrary/locallibrary/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locallibrary/locallibrary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/locallibrary/locallibrary/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730775864827</updated>
-      <workItem from="1730775866808" duration="49189000" />
+      <workItem from="1730775866808" duration="53103000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -136,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730963284926</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="borrower">
+      <option name="closed" value="true" />
+      <created>1731035766136</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1731035766136</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +140,7 @@
     <MESSAGE value="pages" />
     <MESSAGE value="Detail_lists" />
     <MESSAGE value="login" />
-    <option name="LAST_COMMIT_MESSAGE" value="login" />
+    <MESSAGE value="borrower" />
+    <option name="LAST_COMMIT_MESSAGE" value="borrower" />
   </component>
 </project>
