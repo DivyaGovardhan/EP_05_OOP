@@ -22,16 +22,17 @@ class BookInstance(models.Model):
         return False
 
     LOAN_STATUS = (
-        ('п', 'Поддержка'),
-        ('в', 'В долг'),
-        ('д', 'Доступный'),
-        ('з', 'Зарезервированный'),
+        ('m', 'Обслуживание'),
+        ('o', 'Аренда'),
+        ('a', 'Доступен'),
+        ('r', 'Зарезервирован'),
     )
 
     status = models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default='п', help_text='Доступность книги')
 
     class Meta:
         ordering = ["due_back"]
+        permissions = (("can_mark_returned", "Set book as returned"),)
 
 
     def __str__(self):
@@ -61,7 +62,6 @@ class Book(models.Model):
         String for representing the Model object.
         """
         return self.title
-
 
     def get_absolute_url(self):
         """

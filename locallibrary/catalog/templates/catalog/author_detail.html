@@ -6,7 +6,7 @@
   <hr>
 
   <hr>
-  <h2>Books</h2>
+  <h2>Книги</h2>
 
   <dl>
     {% for book in author.book_set.all %}
@@ -17,5 +17,10 @@
       <p>Нет книг этого автора</p>
     {% endfor %}
   </dl>
+
+  <span>
+    <a href="{% url 'author_update' author.pk %}">Редактировать</a>
+    <a class="text-danger" href="{% url 'author_delete' author.pk %}">Удалить</a>
+  </span>
 
 {% endblock %}
