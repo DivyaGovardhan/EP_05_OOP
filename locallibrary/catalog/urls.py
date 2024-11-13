@@ -1,5 +1,6 @@
 from . import views
 from django.conf.urls import url
+from django.urls import path
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -16,4 +17,5 @@ urlpatterns = [
     url(r'^book/create/$', views.BookCreate.as_view(), name='book_create'),
     url(r'^book/(?P<pk>\d+)/update/$', views.BookUpdate.as_view(), name='book_update'),
     url(r'^book/(?P<pk>\d+)/delete/$', views.BookDelete.as_view(), name='book_delete'),
+    path('forgot-password/', views.forgot_password, name='forgot_password'),
 ]

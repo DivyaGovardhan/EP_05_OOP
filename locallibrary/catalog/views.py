@@ -1,3 +1,7 @@
+import random
+import string
+from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
@@ -10,6 +14,31 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .forms import RenewBookForm
 from .models import Book, Author, BookInstance, Genre
+
+def generate_random_password(length=6):
+    characters = string.ascii_letters + string.digits
+    return ''.join(random.choice(characters) for _ in range(length))
+
+def forgot_password(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        try:
+            user = User.objects.get(email=email)
+            new_password = generate_random_password()
+            user.set_password(new_password)
+            user.save()
+
+            send_mail(
+                'Ваш новый пароль',
+                f'Ваш новый пароль: {new_password}',
+                'aslikyan2006@gmail.com',
+                [email],
+                fail_silently=False,
+            )
+            return render(request, 'registration/password_reset_done.html')
+        except User.DoesNotExist:
+            return render(request, 'password_reset_form.html', {'error': 'Пользователь с таким email не найден.', 'email': email})
+    return render(request, 'password_reset_form.html')
 
 def index(request):
     """
