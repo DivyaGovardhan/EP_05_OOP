@@ -31,14 +31,14 @@ def forgot_password(request):
             send_mail(
                 'Ваш новый пароль',
                 f'Ваш новый пароль: {new_password}',
-                'aslikyan2006@gmail.com',
+                'aslikyan2001@yandex.ru',
                 [email],
                 fail_silently=False,
             )
             return render(request, 'registration/password_reset_done.html')
         except User.DoesNotExist:
-            return render(request, 'password_reset_form.html', {'error': 'Пользователь с таким email не найден.', 'email': email})
-    return render(request, 'password_reset_form.html')
+            return render(request, 'registration/password_reset_form.html', {'error': 'Пользователь с таким email не найден.', 'email': email})
+    return render(request, 'registration/password_reset_form.html')
 
 def index(request):
     """
